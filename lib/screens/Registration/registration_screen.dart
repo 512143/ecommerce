@@ -12,7 +12,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey ,
+      backgroundColor: Colors.blueGrey[400] ,
       body:Center(child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 30.0),
         width: MediaQuery.of(context).size.width * 0.8,

@@ -1,3 +1,4 @@
+import 'package:ecommerce/screens/Cart/card_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ecommerce/constants.dart';
@@ -7,12 +8,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildAppBar(context),
       body: Body(),
     );
   }
 
-  AppBar buildAppBar() {
+  AppBar buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
@@ -35,7 +36,14 @@ class HomeScreen extends StatelessWidget {
             // By default our  icon color is white
             color: kTextColor,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context)=>CartScreen()
+              ),
+            );
+          },
         ),
         SizedBox(width: kDefaultPaddin / 2)
       ],

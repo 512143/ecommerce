@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ecommerce/models/Product.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../constants.dart';
 
@@ -43,9 +45,17 @@ class AddToCart extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18)),
                 color: product.color,
-                onPressed: () {},
+                onPressed: () {
+                  showTopSnackBar(
+                    context,
+                    CustomSnackBar.success(
+                      message:
+                          "Добавлено в корзину😁",
+                    ),
+                );
+                },
                 child: Text(
-                  "Buy  Now".toUpperCase(),
+                  "Купить".toUpperCase(),
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,

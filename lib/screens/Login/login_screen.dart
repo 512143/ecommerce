@@ -1,3 +1,5 @@
+import 'package:ecommerce/screens/Registration/registration_screen.dart';
+import 'package:ecommerce/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class Login_screen extends StatefulWidget {
@@ -8,11 +10,20 @@ class Login_screen extends StatefulWidget {
 }
 
 class _Login_screenState extends State<Login_screen> {
+  void login(){
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context)=>
+        HomeScreen()
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     
        return Scaffold(
-      backgroundColor: Colors.blueGrey ,
+      backgroundColor: Colors.blueGrey[400] ,
       body:Center(child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 30.0),
         width: MediaQuery.of(context).size.width * 0.8,
@@ -64,7 +75,7 @@ class _Login_screenState extends State<Login_screen> {
             ),
             SizedBox(height: 10,),
             TextButton(
-              onPressed:() {},
+              onPressed:login,
                child: Text(
                  "Войти",
                 style: TextStyle(
@@ -76,7 +87,29 @@ class _Login_screenState extends State<Login_screen> {
                  ),
             Spacer(
               flex: 3,
-            )
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context)=>RegistrationScreen()
+                  ),
+                );
+              },
+               child: Text(
+                 "Нет аккаунта?",
+                 style: TextStyle(
+                 fontSize: 16,
+                 fontWeight: FontWeight.w500,
+                ),
+              ),
+              style:TextButton.styleFrom(
+                   primary:Colors.teal,
+                 ),
+            ),
+
+
             ]
           ),
         )
