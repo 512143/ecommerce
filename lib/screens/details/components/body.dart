@@ -1,3 +1,4 @@
+import 'package:ecommerce/models/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/constants.dart';
 import 'package:ecommerce/models/Product.dart';
@@ -10,8 +11,23 @@ import 'product_title_with_image.dart';
 
 class Body extends StatelessWidget {
   final Product product;
+  int amount = 1;
+  Body({Key? key, required this.product}) : super(key: key);
 
-  const Body({Key? key, required this.product}) : super(key: key);
+  void addToCart(){
+  Cart.cart[product] = amount;
+  }
+
+  void incrementAmount(){
+    amount ++;
+    print('Количество товара $amount');
+  }
+
+  void decrementAmount(){
+    amount --;
+    print('Количество товара $amount');
+  }
+
   @override
   Widget build(BuildContext context) {
     // It provide us total height and width
@@ -44,9 +60,9 @@ class Body extends StatelessWidget {
                       SizedBox(height: kDefaultPaddin / 2),
                       Description(product: product),
                       SizedBox(height: kDefaultPaddin / 2),
-                      CounterWithFavBtn(),
+                      CounterWithFavBtn(incrementAmount: incrementAmount, decrmentAmount: decrementAmount,),
                       SizedBox(height: kDefaultPaddin / 2),
-                      AddToCart(product: product)
+                      AddToCart(product: product, addToCart: addToCart,)
                     ],
                   ),
                 ),

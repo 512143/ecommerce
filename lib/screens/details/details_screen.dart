@@ -1,3 +1,4 @@
+import 'package:ecommerce/screens/Cart/card_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ecommerce/constants.dart';
@@ -36,7 +37,14 @@ class DetailsScreen extends StatelessWidget {
         ),
         IconButton(
           icon: SvgPicture.asset("assets/icons/cart.svg"),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context)=>CartScreen()
+              ),
+            );
+          },
         ),
         SizedBox(width: kDefaultPaddin / 2)
       ],

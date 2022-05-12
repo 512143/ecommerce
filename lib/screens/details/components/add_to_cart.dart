@@ -7,12 +7,15 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import '../../../constants.dart';
 
 class AddToCart extends StatelessWidget {
-  const AddToCart({
+  AddToCart({
     Key? key,
     required this.product,
+    required this.addToCart,
   }) : super(key: key);
 
   final Product product;
+  final void Function() addToCart;
+  int amount=1;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +38,16 @@ class AddToCart extends StatelessWidget {
                 "assets/icons/add_to_cart.svg",
                 color: product.color,
               ),
-              onPressed: () {},
+              onPressed: () {
+                addToCart();
+                showTopSnackBar(
+                    context,
+                    CustomSnackBar.success(
+                      message:
+                          "Добавлено в корзину😁",
+                    ),
+                );
+              },
             ),
           ),
           Expanded(
@@ -46,13 +58,7 @@ class AddToCart extends StatelessWidget {
                     borderRadius: BorderRadius.circular(18)),
                 color: product.color,
                 onPressed: () {
-                  showTopSnackBar(
-                    context,
-                    CustomSnackBar.success(
-                      message:
-                          "Добавлено в корзину😁",
-                    ),
-                );
+                  
                 },
                 child: Text(
                   "Купить".toUpperCase(),

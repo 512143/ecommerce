@@ -6,14 +6,22 @@ import 'cart_counter.dart';
 class CounterWithFavBtn extends StatelessWidget {
   const CounterWithFavBtn({
     Key? key,
+    required this.incrementAmount,
+    required this.decrmentAmount
   }) : super(key: key);
+
+  final void Function() incrementAmount;
+  final void Function() decrmentAmount;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        CartCounter(),
+        CartCounter(
+          incrementAmount: incrementAmount,
+          decrementAmount: decrmentAmount,
+        ),
         Container(
           padding: EdgeInsets.all(8),
           height: 32,
