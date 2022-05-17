@@ -10,6 +10,23 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  double totalPrice = 0;
+
+  void _calculateTotalPrice(){
+    if(Cart.cart.isEmpty){
+      totalPrice==0;
+    }
+    else{
+      for(int i = 0; i <Cart.cart.length; i++){
+        totalPrice += Cart.cart.keys.toList()[i].price;
+      }
+    }
+  }
+  @override
+  void initState(){
+    _calculateTotalPrice();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,14 +47,44 @@ class _CartScreenState extends State<CartScreen> {
          style: TextStyle(color: Colors.blueGrey),
        ),
      ),  
-     body: ListView.separated(
+     body: Cart.cart.length > 0
+      ?ListView.separated(
        padding: const EdgeInsets.symmetric(vertical: 20.0),
        separatorBuilder: (BuildContext context, int index)
        =>const SizedBox(height:20.0),
        itemBuilder: (BuildContext context,int index)
        =>ProductItem(product: Cart.cart.keys.toList()[index],),
        itemCount: Cart.cart.length,
-    ),
+    )
+      :Center(child: Text(
+        "Корзина пуста",
+        style: TextStyle(
+        fontSize: 20.0
+      )
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        width:MediaQuery.of(context).size.width,
+        height:70.0,
+        child:Row(children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+            Text("Итого:",
+            style: TextStyle(fontSize: 24.0,
+            fontWeight: FontWeight.w600,
+            
+            ),
+            ),
+            Text(
+              '\$${totalPrice.toString()}',
+               style: TextStyle(color: Colors.green)
+            ),
+           
+          ],)
+        ],)
+      ),
     );
   }
 }
