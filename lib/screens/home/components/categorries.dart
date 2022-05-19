@@ -10,7 +10,7 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  List<String> categories = ["Hand bag", "Jewellery", "Footwear", "Dresses"];
+  List<String> categories = ["Сумки", "Украшения", "Обувь", "Платья"];
   // By default our first item will be selected
   int selectedIndex = 0;
   @override

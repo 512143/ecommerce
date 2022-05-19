@@ -1,3 +1,4 @@
+import 'package:ecommerce/screens/Cart/card_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ecommerce/models/Product.dart';
@@ -58,7 +59,21 @@ class AddToCart extends StatelessWidget {
                     borderRadius: BorderRadius.circular(18)),
                 color: product.color,
                 onPressed: () {
+                  addToCart();
+                showTopSnackBar(
+                    context,
+                CustomSnackBar.success(
+                  message:
+                    "Добавлено в корзину😁",
+                  ),
                   
+                );
+              Navigator.push(
+               context,
+                MaterialPageRoute(
+                  builder: (BuildContext context)=>CartScreen()
+                  ),
+                 );
                 },
                 child: Text(
                   "Купить".toUpperCase(),

@@ -19,7 +19,7 @@ class ProductTitleWithImage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Aristocratic Hand Bag",
+            "Аристократичная сумка",
             style: TextStyle(color: Colors.white),
           ),
           Text(
@@ -35,7 +35,7 @@ class ProductTitleWithImage extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: "Price\n"),
+                    TextSpan(text: "Цена \n"),
                     TextSpan(
                       text: "\$${product.price}",
                       style: Theme.of(context).textTheme.headline4!.copyWith(

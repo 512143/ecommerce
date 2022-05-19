@@ -1,6 +1,7 @@
 import 'package:ecommerce/models/Product.dart';
 import 'package:ecommerce/models/cart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_swipe_action_cell/flutter_swipe_action_cell.dart';
 
 class CartScreen extends StatefulWidget {
   CartScreen({Key? key}) : super(key: key);
@@ -31,6 +32,9 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
      appBar: AppBar(
+       shadowColor: Colors.transparent,
+       foregroundColor: Colors.transparent,
+       elevation: 0,
        backgroundColor: Colors.white,
        automaticallyImplyLeading: false,
        leading: IconButton(
@@ -53,7 +57,22 @@ class _CartScreenState extends State<CartScreen> {
        separatorBuilder: (BuildContext context, int index)
        =>const SizedBox(height:20.0),
        itemBuilder: (BuildContext context,int index)
-       =>ProductItem(product: Cart.cart.keys.toList()[index],),
+       =>SwipeActionCell(
+         key: ObjectKey(Cart.cart.keys.toList()[index]),
+         trailingActions: <SwipeAction>[
+         SwipeAction(
+             ///this is the same as iOS native
+             performsFirstActionWithFullSwipe: true,
+             title: "Удалить",
+             onTap: (CompletionHandler handler) async {
+               Cart.cart.removeWhere((key, value)
+                => key == Cart.cart.keys.toList()[index]);
+               setState(() {});
+             },
+             color: Colors.red),
+       ],
+          child: ProductItem(product: Cart.cart.keys.toList()[index],)
+         ),
        itemCount: Cart.cart.length,
     )
       :Center(child: Text(
@@ -63,7 +82,8 @@ class _CartScreenState extends State<CartScreen> {
       )
         ),
       ),
-      bottomNavigationBar: Container(
+      bottomNavigationBar: 
+      Cart.cart.isNotEmpty ? Container(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         width:MediaQuery.of(context).size.width,
         height:70.0,
@@ -84,7 +104,8 @@ class _CartScreenState extends State<CartScreen> {
            
           ],)
         ],)
-      ),
+      )
+      : const SizedBox()
     );
   }
 }
