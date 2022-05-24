@@ -75,7 +75,7 @@ List<Product> productZoloto=[
     size: 12,
     description: dummyText,
     image: "assets/images/jewelry.png",
-    color: Colors.yellowAccent,
+    color: Colors.yellow,
   ),
   Product(
     id: 2,
