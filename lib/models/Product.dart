@@ -65,6 +65,45 @@ List<Product> products = [
     image: "assets/images/bag_6.png",
     color: Color(0xFFAEAEAE),
   ),
+  
+];
+List<Product> productZoloto=[
+  Product(
+    id: 1,
+    title: "Кольцо золотое",
+    price: 234,
+    size: 12,
+    description: dummyText,
+    image: "assets/images/jewelry.png",
+    color: Colors.yellowAccent,
+  ),
+  Product(
+    id: 2,
+    title: "Ожерелье Рубин",
+    price: 234,
+    size: 12,
+    description: dummyText,
+    image: "assets/images/jewelry1.png",
+    color: Colors.red,
+  ),
+  Product(
+    id: 3,
+    title: "Серьги Рубин",
+    price: 234,
+    size: 12,
+    description: dummyText,
+    image: "assets/images/jewelry2.png",
+    color: Colors.redAccent,
+  ),
+  Product(
+    id: 4,
+    title: "Офисная",
+    price: 234,
+    size: 12,
+    description: dummyText,
+    image: "assets/images/jewelry3.png",
+    color: Colors.grey,
+  ),
 ];
 
 String dummyText =

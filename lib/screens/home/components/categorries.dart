@@ -5,6 +5,9 @@ import '../../../constants.dart';
 // We need satefull widget for our categories
 
 class Categories extends StatefulWidget {
+  Categories({Key? key, this.changePage})
+    :super(key: key);
+  Function(int)? changePage;
   @override
   _CategoriesState createState() => _CategoriesState();
 }
@@ -33,6 +36,7 @@ class _CategoriesState extends State<Categories> {
       onTap: () {
         setState(() {
           selectedIndex = index;
+          widget.changePage!(index);
         });
       },
       child: Padding(
