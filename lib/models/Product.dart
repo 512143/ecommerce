@@ -106,5 +106,83 @@ List<Product> productZoloto=[
   ),
 ];
 
+List<Product> productShoes=[
+  Product(
+    id: 1,
+    title: "Новогодняя красота",
+    price: 234,
+    size: 12,
+    description: dummyText,
+    image: "assets/images/ws4.png",
+    color: Colors.red.shade100,
+  ),
+  Product(
+    id: 2,
+    title: "Обувной Эстет",
+    price: 234,
+    size: 12,
+    description: dummyText,
+    image: "assets/images/ws1.png",
+    color: Colors.brown.shade50,
+  ),
+  Product(
+    id: 3,
+    title: "Синий каприз",
+    price: 234,
+    size: 12,
+    description: dummyText,
+    image: "assets/images/ws3.png",
+    color: Colors.brown.shade50,
+  ),
+  Product(
+    id: 4,
+    title: "Зеленая мечта",
+    price: 234,
+    size: 12,
+    description: dummyText,
+    image: "assets/images/ws2.png",
+    color: Colors.grey,
+  ),
+];
+
+List<Product> productDress=[
+  Product(
+    id: 1,
+    title: "Вечерняя сказка",
+    price: 234,
+    size: 12,
+    description: dummyText,
+    image: "assets/images/dress1.png",
+    color: Colors.purple.shade100,
+  ),
+  Product(
+    id: 2,
+    title: "Золотой обычай",
+    price: 234,
+    size: 12,
+    description: dummyText,
+    image: "assets/images/dress2.png",
+    color: Colors.brown.shade50,
+  ),
+  Product(
+    id: 3,
+    title: "Свадебное",
+    price: 234,
+    size: 12,
+    description: dummyText,
+    image: "assets/images/dress.png",
+    color: Colors.blueGrey,
+  ),
+  Product(
+    id: 4,
+    title: "Желтая радость",
+    price: 234,
+    size: 12,
+    description: dummyText,
+    image: "assets/images/dress3.png",
+    color: Colors.blueAccent,
+  ),
+];
+
 String dummyText =
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. When an unknown printer took a galley.";
