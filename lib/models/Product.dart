@@ -15,6 +15,7 @@ class Product {
   });
 }
 
+
 List<Product> products = [
   Product(
       id: 1,
@@ -157,17 +158,19 @@ List<Product> productDress=[
   ),
   Product(
     id: 2,
-    title: "Золотой обычай",
-    price: 234,
+    title: "Счастливый красный",
+    price: 174,
     size: 12,
     description: dummyText,
+    
     image: "assets/images/dress2.png",
-    color: Colors.brown.shade50,
+
+    color: Color.fromARGB(255, 94, 214, 223),
   ),
   Product(
     id: 3,
     title: "Свадебное",
-    price: 234,
+    price: 349,
     size: 12,
     description: dummyText,
     image: "assets/images/dress.png",
@@ -175,8 +178,8 @@ List<Product> productDress=[
   ),
   Product(
     id: 4,
-    title: "Желтая радость",
-    price: 234,
+    title: "Летнее счастье",
+    price: 75,
     size: 12,
     description: dummyText,
     image: "assets/images/dress3.png",

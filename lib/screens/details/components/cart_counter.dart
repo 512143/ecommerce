@@ -22,7 +22,7 @@ class _CartCounterState extends State<CartCounter> {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        buildOutlineButton(
+        buildOutlinedButton(
           icon: Icons.remove,
           press: () {
             if (numOfItems > 1) {
@@ -42,7 +42,8 @@ class _CartCounterState extends State<CartCounter> {
             style: Theme.of(context).textTheme.headline6,
           ),
         ),
-        buildOutlineButton(
+        buildOutlinedButton(
+          
             icon: Icons.add,
             press: () {
               setState(() {
@@ -55,15 +56,11 @@ class _CartCounterState extends State<CartCounter> {
     );
   }
 
-  SizedBox buildOutlineButton({required IconData icon,Function()? press}) {
+  SizedBox buildOutlinedButton({required IconData icon,Function()? press}) {
     return SizedBox(
       width: 40,
       height: 32,
-      child: OutlineButton(
-        padding: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(13),
-        ),
+      child: OutlinedButton(
         onPressed: press,
         child: Icon(icon),
       ),

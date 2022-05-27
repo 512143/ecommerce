@@ -1,18 +1,34 @@
 import 'package:ecommerce/models/Product.dart';
 import 'package:ecommerce/models/cart.dart';
+import 'package:ecommerce/screens/details/components/body.dart';
+import 'package:ecommerce/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swipe_action_cell/flutter_swipe_action_cell.dart';
 
+import '../../models/cart.dart';
+
+
+
 class CartScreen extends StatefulWidget {
   CartScreen({Key? key}) : super(key: key);
-
   @override
   _CartScreenState createState() => _CartScreenState();
 }
 
 class _CartScreenState extends State<CartScreen> {
   double totalPrice = 0;
-
+  double totalProduct = 0;
+  void _calculateTotalProduct(){
+    if(Cart.cart.isEmpty){
+      totalProduct == 0;
+    }
+    else{
+      for(int i = 0; i<Cart.cart.length;i++)
+      {
+        totalProduct +=1;
+      }
+    }
+  }
   void _calculateTotalPrice(){
     if(Cart.cart.isEmpty){
       totalPrice==0;
@@ -25,6 +41,7 @@ class _CartScreenState extends State<CartScreen> {
   }
   @override
   void initState(){
+    _calculateTotalProduct();
     _calculateTotalPrice();
     super.initState();
   }
@@ -50,6 +67,9 @@ class _CartScreenState extends State<CartScreen> {
          "Корзина",
          style: TextStyle(color: Colors.blueGrey),
        ),
+      
+       
+       
      ),  
      body: Cart.cart.length > 0
       ?ListView.separated(
@@ -87,7 +107,7 @@ class _CartScreenState extends State<CartScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         width:MediaQuery.of(context).size.width,
         height:70.0,
-        child:Row(children: [
+        child:Row(children: [ 
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -99,11 +119,52 @@ class _CartScreenState extends State<CartScreen> {
             ),
             Text(
               '\$${totalPrice.toString()}',
-               style: TextStyle(color: Colors.green)
+               style: TextStyle(color: Color.fromARGB(255, 45, 160, 48),
+               fontSize: 18.0,
+               fontWeight: FontWeight.w600
+               )
             ),
+            
+            
            
-          ],)
-        ],)
+          ],),
+          
+          Spacer(),
+          Text('Всего товаров: ',
+           style:
+            TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.w600
+              ),
+              ),
+          Text(
+            '${totalProduct.toString()}',
+            style:
+            TextStyle(
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600),
+              ),
+          Spacer(),
+          
+          OutlinedButton(
+                onPressed: (
+                  
+                ) {},
+                child: Text('Купить',
+                style:TextStyle(color: Color.fromARGB(255, 255, 255, 255),
+                fontSize: 24.0, fontWeight: FontWeight.w600
+                ),
+                
+                ),
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: Colors.greenAccent,
+                  side: BorderSide(width: 7.0, color: Colors.greenAccent),
+                  minimumSize: Size(90, 60),
+                ),
+              )
+        ],
+        
+        )
       )
       : const SizedBox()
     );
@@ -112,6 +173,15 @@ class _CartScreenState extends State<CartScreen> {
 class ProductItem extends StatelessWidget {
    ProductItem({Key? key , required this.product}) : super(key: key);
   final Product product;
+  int selectedPage = 0;
+  PageController _pageController = PageController();
+  void setSelectedPage(int index){
+    selectedPage = index;
+    _pageController.animateToPage
+    (index, duration: const Duration(milliseconds: 300),
+     curve: Curves.easeIn
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -135,6 +205,7 @@ class ProductItem extends StatelessWidget {
             ),
           ],
           ),
+          
           child: Row(
             children: [
               Image.asset(product.image, height: 130.0 ),
@@ -149,7 +220,6 @@ class ProductItem extends StatelessWidget {
                       fontWeight: FontWeight.w600
                     ),
                   ),
-                  
                   Text(
                     '\$${product.price.toString()}',
                     style: const TextStyle(
@@ -158,8 +228,32 @@ class ProductItem extends StatelessWidget {
                       color: Colors.deepPurpleAccent
                     ),
                   ),
+                  
+                  
                 ],
-                )
+                ),
+                Spacer(),
+                TextButton(
+              onPressed: () {
+                
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context)=>HomeScreen()
+                  ),
+                );
+              },
+               child: Text(
+                 "Купить",
+                 style: TextStyle(
+                 fontSize: 16,
+                 fontWeight: FontWeight.w500,
+                ),
+              ),
+              style:TextButton.styleFrom(
+                   primary:Color.fromARGB(255, 46, 14, 119),
+                 ),
+            ),
 
             ],
           ),

@@ -11,6 +11,7 @@ import 'product_title_with_image.dart';
 
 class Body extends StatelessWidget {
   final Product product;
+  
   int amount = 1;
   Body({Key? key, required this.product}) : super(key: key);
 
@@ -26,6 +27,7 @@ class Body extends StatelessWidget {
   void decrementAmount(){
     amount --;
     print('Количество товара $amount');
+    
   }
 
   @override
