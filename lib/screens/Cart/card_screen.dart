@@ -86,6 +86,7 @@ class _CartScreenState extends State<CartScreen> {
                                 Cart.cart.removeWhere((key, value) =>
                                     key == Cart.cart.keys.toList()[index]);
                                 setState(() {});
+                                totalProduct = totalProduct - 1;
                               },
                               color: Colors.red),
                         ],
