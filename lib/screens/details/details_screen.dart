@@ -5,6 +5,7 @@ import 'package:ecommerce/constants.dart';
 import 'package:ecommerce/models/Product.dart';
 import 'package:ecommerce/screens/details/components/body.dart';
 
+
 class DetailsScreen extends StatelessWidget {
   final Product product;
 
@@ -16,6 +17,7 @@ class DetailsScreen extends StatelessWidget {
       backgroundColor: product.color,
       appBar: buildAppBar(context),
       body: Body(product: product),
+      
     );
   }
 

@@ -15,7 +15,6 @@ class Product {
   });
 }
 
-
 List<Product> products = [
   Product(
       id: 1,
@@ -66,9 +65,8 @@ List<Product> products = [
     image: "assets/images/bag_6.png",
     color: Color(0xFFAEAEAE),
   ),
-  
 ];
-List<Product> productZoloto=[
+List<Product> productZoloto = [
   Product(
     id: 1,
     title: "Кольцо золотое",
@@ -107,7 +105,7 @@ List<Product> productZoloto=[
   ),
 ];
 
-List<Product> productShoes=[
+List<Product> productShoes = [
   Product(
     id: 1,
     title: "Новогодняя красота",
@@ -146,7 +144,7 @@ List<Product> productShoes=[
   ),
 ];
 
-List<Product> productDress=[
+List<Product> productDress = [
   Product(
     id: 1,
     title: "Вечерняя сказка",
@@ -162,9 +160,7 @@ List<Product> productDress=[
     price: 174,
     size: 12,
     description: dummyText,
-    
     image: "assets/images/dress2.png",
-
     color: Color.fromARGB(255, 94, 214, 223),
   ),
   Product(

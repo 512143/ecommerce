@@ -11,23 +11,23 @@ import 'product_title_with_image.dart';
 
 class Body extends StatelessWidget {
   final Product product;
-  
+
   int amount = 1;
   Body({Key? key, required this.product}) : super(key: key);
 
-  void addToCart(){
-  Cart.cart[product] = amount;
+  void addToCart() {
+    Cart.cart[product] = amount;
   }
 
-  void incrementAmount(){
-    amount ++;
+  void incrementAmount() {
+    amount++;
+
     print('Количество товара $amount');
   }
 
-  void decrementAmount(){
-    amount --;
+  void decrementAmount() {
+    amount--;
     print('Количество товара $amount');
-    
   }
 
   @override
@@ -62,9 +62,15 @@ class Body extends StatelessWidget {
                       SizedBox(height: kDefaultPaddin / 2),
                       Description(product: product),
                       SizedBox(height: kDefaultPaddin / 2),
-                      CounterWithFavBtn(incrementAmount: incrementAmount, decrmentAmount: decrementAmount,),
+                      CounterWithFavBtn(
+                        incrementAmount: incrementAmount,
+                        decrmentAmount: decrementAmount,
+                      ),
                       SizedBox(height: kDefaultPaddin / 2),
-                      AddToCart(product: product, addToCart: addToCart,)
+                      AddToCart(
+                        product: product,
+                        addToCart: addToCart,
+                      )
                     ],
                   ),
                 ),
